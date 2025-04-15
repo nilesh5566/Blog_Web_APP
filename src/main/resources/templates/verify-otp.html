@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+
+<body class="sub_page">
+
+    <div class="hero_area">
+        <div class="bg-box">
+            <img src="images/nav-bg.jpg" alt="">
+        </div>
+        <header th:replace="fragments/header :: header"></header>
+    </div>
+
+    <!-- About Section -->
+    <!-- book section -->
+    <section class="book_section layout_padding">
+      <div class="container">
+        <div class="heading_container">
+          <h3>Forgot Password</h3>
+          <!-- Flash message -->
+          <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+          <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="form_container">
+                <form th:action="@{/verify-otp}" method="post">
+                    <input type="hidden" class="form-control" name="email" th:value="${email}" />
+                    <label>Enter OTP:</label>
+                    <input type="text" class="form-control" name="otp" required />
+                    <button class="form-control" type="submit">Verify</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>    
+
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>

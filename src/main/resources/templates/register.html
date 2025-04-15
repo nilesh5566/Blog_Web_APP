@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+
+<body class="sub_page">
+
+    <div class="hero_area">
+        <div class="bg-box">
+            <img src="images/nav-bg.jpg" alt="">
+        </div>
+        <header th:replace="fragments/header :: header"></header>
+    </div>
+
+    <!-- About Section -->
+    <section class="book_section layout_padding">
+       <div class="container">
+        <h1>Register</h1>
+        <div th:if="${param.success}" class="alert alert-success">
+            Registration successful! Please login.
+        </div>
+        <form th:action="@{/register}" th:object="${account}" method="post">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" required class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" th:field="*{password}" required class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" th:field="*{firstname}" required class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" th:field="*{lastname}" required class="form-control"/>
+            </div>
+          
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <p>Already have an account? <a th:href="@{/login}">Login here</a></p>
+    </div>
+      </section> 
+      <!-- end book section -->
+    
+
+
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>

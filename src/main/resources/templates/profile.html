@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+
+<body class="sub_page">
+
+    <div class="hero_area">
+        <div class="bg-box">
+            <img src="images/nav-bg.jpg" alt="">
+        </div>
+        <header th:replace="fragments/header :: header"></header>
+    </div>
+
+    <!-- About Section -->
+    <!-- <section class="about_section layout_padding">
+        <div class="container">
+            <h1>Profile</h1>
+            
+        </div>
+    </section> -->
+    <section class="book_section layout_padding">
+        <div class="container">
+          <div class="heading_container">
+            <h3>
+              Profile
+            </h3>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form_container">
+                <form th:action="@{/profile}" th:object="${account}" method="post">
+                    <div Fclass="form-group">
+                        <label for="email">Email:</label>
+                        <input type="hidden" id="id" name="id" th:field="*{id}" />
+                      <input type="email" id="email" th:field="*{email}" required class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" th:field="*{password}" required class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstname">First Name:</label>
+                        <input type="text" id="firstname" th:field="*{firstname}" required class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" id="lastname" th:field="*{lastname}" required class="form-control"/>
+                    </div>
+                  
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>
